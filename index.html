@@ -1,0 +1,232 @@
+<title>Portefólio Ana Venâncio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<style>
+/* Layout: single column page, projects as a ruled list where each row carries its own small architecture line */
+:root{
+  --bg:#f4f6f4; --fg:#14201f; --muted:#52625f; --line:#d3dbd8; --panel:#ffffff;
+  --accent:#0a6a5b; --accent-ink:#ffffff; --tag:#e3ece9;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0d1413; --fg:#e5eeeb; --muted:#93a6a2; --line:#233230; --panel:#131d1b;
+  --accent:#5fd1b8; --accent-ink:#082019; --tag:#1a2926; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0d1413; --fg:#e5eeeb; --muted:#93a6a2; --line:#233230; --panel:#131d1b;
+  --accent:#5fd1b8; --accent-ink:#082019; --tag:#1a2926; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;
+  padding-block:0 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:920px;margin:0 auto}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.mono{font-family:var(--mono)}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.1}
+nav{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;align-items:center;padding-block:20px;border-bottom:1px solid var(--line)}
+nav .name{font-family:var(--display);font-weight:700;font-size:18px}
+nav ul{display:flex;flex-wrap:wrap;gap:4px 20px;list-style:none;margin:0;padding:0;font-size:14px}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--fg)}
+.hero{padding-block:64px 48px}
+.hero h1{font-size:clamp(40px,8vw,72px);font-weight:700;letter-spacing:-.02em;margin-top:12px}
+.hero p.lead{font-size:clamp(18px,2.4vw,21px);max-width:60ch;margin:20px 0 0;color:var(--fg)}
+.focus{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 0;padding:0;list-style:none}
+.focus li,.tag{font-family:var(--mono);font-size:12.5px;background:var(--tag);padding:4px 10px;border-radius:4px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-block;font-weight:500;font-size:15px;padding:11px 18px;border-radius:6px;text-decoration:none;border:1px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{color:var(--accent)}
+.btn:hover{filter:brightness(1.08)}
+section{padding-block:48px;border-top:1px solid var(--line)}
+section>h2{font-size:clamp(26px,4vw,34px);font-weight:700;margin-bottom:8px}
+section>.sub{color:var(--muted);max-width:60ch;margin:0 0 28px}
+.proj{display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+.row{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;padding-block:28px;border-top:1px solid var(--line)}
+.row:first-child{border-top:0;padding-top:0}
+@media(min-width:760px){.row{grid-template-columns:200px minmax(0,1fr);gap:32px}}
+.meta{display:flex;flex-direction:column;gap:6px;min-width:0}
+.meta .where{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.row h3{font-size:24px;font-weight:700}
+.row p{margin:10px 0 0;max-width:62ch}
+.role{margin-top:10px;font-size:15px}
+.role b{font-weight:500}
+.flow{margin-top:14px;font-family:var(--mono);font-size:12.5px;color:var(--muted);background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:10px 12px;overflow-x:auto;white-space:nowrap}
+.flow i{font-style:normal;color:var(--accent)}
+.stack{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 0;padding:0;list-style:none}
+.links{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:14px;font-size:15px}
+.private{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px 32px}
+.skills h3{font-size:15px;font-family:var(--mono);font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.skills p{margin:0}
+.edu{display:grid;gap:16px;max-width:62ch}
+.edu div{display:flex;flex-direction:column}
+.edu span{color:var(--muted);font-size:14px}
+.contact p{max-width:60ch;margin:0 0 20px}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:20px}
+.shots figure{margin:0;min-width:0}
+.shots a{display:block;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--panel)}
+.shots a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.shots img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top}
+.shots figcaption{margin-top:6px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+footer{padding-top:32px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+@media(prefers-reduced-motion:no-preference){.btn{transition:filter .15s}}
+</style>
+<script>
+/* Se uma imagem não existir, remove-a (e a galeria, se ficar vazia). */
+function hideShot(img){var f=img.closest('figure'),g=f.parentNode;f.remove();if(!g.querySelector('figure')){g.remove()}}
+</script>
+
+<div class="wrap">
+  <nav aria-label="Principal">
+    <span class="name">Ana Venâncio</span>
+    <ul>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#competencias">Competências</a></li>
+      <li><a href="#formacao">Formação</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <span class="label">Engenharia Informática · Lisboa</span>
+    <h1>Ana Venâncio</h1>
+    <p class="lead">Recém-licenciada em Engenharia Informática e atualmente mestranda em Cibersegurança e Informática Forense. 
+      Tenho interesse no desenvolvimento de soluções tecnológicas, análise e gestão de dados e segurança de sistemas.
+      Aqui reúno os projetos, académicos e pessoais, em que trabalhei e que mostram a minha capacidade de resolução de problemas e a minha evolução na área tecnológica.
+    </p>
+    <ul class="focus" aria-label="Áreas de interesse">
+      <li>Desenvolvimento</li><li>Engenharia de Dados</li><li>Análise de Dados</li><li>Cibersegurança</li>
+    </ul>
+    <div class="cta">
+      <a class="btn primary" href="#projetos">Ver projetos</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/ana-vieira-ven%C3%A2ncio03">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/anavv03">GitHub</a>
+    </div>
+  </header>
+
+  <section id="projetos">
+    <h2>Projetos</h2>
+    <p class="sub">Cinco projetos, cada um com a minha parte indicada.</p>
+    <div class="proj">
+
+      <article class="row">
+        <div class="meta"><span class="where">Arquitetura Avançada de Sistemas · UAL 2025/26</span><span class="where">Projeto de grupo</span></div>
+        <div>
+          <h3>UALSpeed</h3>
+          <p>Plataforma distribuída de dados de Fórmula 1 em tempo real, com réplicas de cada serviço, balanceamento de carga, telemetria por WebSocket, monitorização e testes de resiliência em que um nó é desligado de propósito.</p>
+          <p class="role"><b>A minha parte:</b> infraestrutura. Docker Compose, Docker Swarm e Nginx como API gateway e load balancer.</p>
+          <div class="flow" aria-label="Fluxo de dados"><span>Browser</span> <i>→</i> <span>Nginx (least_conn)</span> <i>→</i> <span>2× FastAPI</span> <i>→</i> <span>Redis Pub/Sub</span> <i>→</i> <span>worker</span> <i>→</i> <span>WebSocket</span></div>
+          <ul class="stack"><li class="tag">Docker Swarm</li><li class="tag">Nginx</li><li class="tag">FastAPI</li><li class="tag">Redis</li><li class="tag">PostgreSQL</li><li class="tag">Prometheus</li><li class="tag">Grafana</li><li class="tag">Next.js</li></ul>
+          <div class="shots" aria-label="Capturas de ecrã de UALSpeed">
+            <figure><a href="imagens/ualspeed-1.png" target="_blank" rel="noopener"><img src="imagens/ualspeed-1.png" alt="UALSpeed: Telemetria em tempo real (live_race)" loading="lazy" onerror="hideShot(this)"></a><figcaption>Telemetria em tempo real (live_race)</figcaption></figure>
+            <figure><a href="imagens/ualspeed-2.png" target="_blank" rel="noopener"><img src="imagens/ualspeed-2.png" alt="UALSpeed: Classificação de pilotos e escuderias" loading="lazy" onerror="hideShot(this)"></a><figcaption>Classificação de pilotos e escuderias</figcaption></figure>
+            <figure><a href="imagens/ualspeed-3.png" target="_blank" rel="noopener"><img src="imagens/ualspeed-3.png" alt="UALSpeed: Painel de admin: desligar e recuperar nós" loading="lazy" onerror="hideShot(this)"></a><figcaption>Painel de admin: desligar e recuperar nós</figcaption></figure>
+            <figure><a href="imagens/ualspeed-4.png" target="_blank" rel="noopener"><img src="imagens/ualspeed-4.png" alt="UALSpeed: Métricas no Grafana" loading="lazy" onerror="hideShot(this)"></a><figcaption>Métricas no Grafana</figcaption></figure>
+          </div>
+          <div class="links"><span class="private">Repositório privado de grupo.</span></div>
+        </div>
+      </article>
+
+      <article class="row">
+        <div class="meta"><span class="where">Projeto final de curso · UAL 2025/26</span><span class="where">Projeto de grupo</span></div>
+        <div>
+          <h3>SmartUniverWell</h3>
+          <p>Plataforma de apoio ao bem-estar académico e emocional de estudantes: organização de estudo, check-ins de humor, gamificação e um chatbot com IA fundamentado em referências científicas (RAG). Seis microserviços FastAPI por trás de um frontend React.</p>
+          <p class="role"><b>A minha parte:</b> frontend em React.</p>
+          <ul class="stack"><li class="tag">React</li><li class="tag">FastAPI</li><li class="tag">Docker Compose</li><li class="tag">Supabase</li><li class="tag">JWT</li><li class="tag">scikit-learn</li><li class="tag">FAISS</li></ul>
+          <div class="shots" aria-label="Capturas de ecrã de SmartUniverWell">
+            <figure><a href="imagens/smartuniverwell-1.png" target="_blank" rel="noopener"><img src="imagens/smartuniverwell-1.png" alt="SmartUniverWell: Ecrã inicial" loading="lazy" onerror="hideShot(this)"></a><figcaption>Dashboard inicial</figcaption></figure>
+            <figure><a href="imagens/smartuniverwell-2.png" target="_blank" rel="noopener"><img src="imagens/smartuniverwell-2.png" alt="SmartUniverWell: Check-in de humor" loading="lazy" onerror="hideShot(this)"></a><figcaption>Ecrã de bem-estar com o check-in diário de humor</figcaption></figure>
+            <figure><a href="imagens/smartuniverwell-3.png" target="_blank" rel="noopener"><img src="imagens/smartuniverwell-3.png" alt="SmartUniverWell: Meu Avatar" loading="lazy" onerror="hideShot(this)"></a><figcaption>Meu Avatar</figcaption></figure>
+          </div>
+          <div class="links"><span class="private">Repositório privado de grupo.</span></div>
+        </div>
+      </article>
+
+      <article class="row">
+        <div class="meta"><span class="where">Projeto pessoal</span></div>
+        <div>
+          <h3>Análise do mercado de dados</h3>
+          <p>Análise exploratória e dashboard interativo sobre as competências pedidas em 25 vagas de Dados em Portugal. Nas vagas de entrada, SQL, Power BI, Excel e Inglês formam a base; Python e Cloud surgem sobretudo em vagas mais seniores.</p>
+          <p class="role"><b>Limitação assumida:</b> amostra pequena, recolhida à mão numa só plataforma.</p>
+          <ul class="stack"><li class="tag">Python</li><li class="tag">pandas</li><li class="tag">Streamlit</li><li class="tag">Plotly</li></ul>
+          <div class="shots" aria-label="Capturas de ecrã de Análise do mercado de dados">
+            <figure><a href="imagens/analise-dados-1.png" target="_blank" rel="noopener"><img src="imagens/analise-dados-1.png" alt="Análise do mercado de dados: Dashboard completo" loading="lazy" onerror="hideShot(this)"></a><figcaption>Dashboard completo</figcaption></figure>
+            <figure><a href="imagens/analise-dados-2.png" target="_blank" rel="noopener"><img src="imagens/analise-dados-2.png" alt="Análise do mercado de dados: Competências mais pedidas" loading="lazy" onerror="hideShot(this)"></a><figcaption>Competências mais pedidas para Júnior em Lisboa e Porto</figcaption></figure>
+          </div>
+          <div class="links"><a href="https://github.com/anavv03/analise-mercado-estagio-dados">Código no GitHub</a></div>
+        </div>
+      </article>
+
+      <article class="row">
+        <div class="meta"><span class="where">Tokio School · módulo de desenvolvimento web</span></div>
+        <div>
+          <h3>Luxury Wheels</h3>
+          <p>Aplicação web de aluguer de carros e motas, com autenticação, pesquisa com filtros, reservas com cálculo automático do valor e verificação de datas sobrepostas. Inclui um painel de administração para gerir o catálogo.</p>
+          <ul class="stack"><li class="tag">Flask</li><li class="tag">SQLAlchemy</li><li class="tag">Flask-Login</li><li class="tag">CSRF</li><li class="tag">SQLite</li><li class="tag">Bootstrap</li></ul>
+          <div class="shots" aria-label="Capturas de ecrã de Luxury Wheels">
+            <figure><a href="imagens/luxury-wheels-1.png" target="_blank" rel="noopener"><img src="imagens/luxury-wheels-1.png" alt="Luxury Wheels: Pesquisa com filtros" loading="lazy" onerror="hideShot(this)"></a><figcaption>Pesquisa com filtros</figcaption></figure>
+            <figure><a href="imagens/luxury-wheels-2.png" target="_blank" rel="noopener"><img src="imagens/luxury-wheels-2.png" alt="Luxury Wheels: Página de reserva" loading="lazy" onerror="hideShot(this)"></a><figcaption>Página de reserva</figcaption></figure>
+            <figure><a href="imagens/luxury-wheels-3.png" target="_blank" rel="noopener"><img src="imagens/luxury-wheels-3.png" alt="Luxury Wheels: Painel de administração" loading="lazy" onerror="hideShot(this)"></a><figcaption>Painel de administração</figcaption></figure>
+          </div>
+          <div class="links"><a href="https://github.com/anavv03/luxury-wheels">Código no GitHub</a></div>
+        </div>
+      </article>
+
+      <article class="row">
+        <div class="meta"><span class="where">Projeto pessoal</span></div>
+        <div>
+          <h3>Amigo Oculto</h3>
+          <p>Sorteio de amigo oculto para a família, sem contas nem servidor. O organizador gera um link privado por pessoa e o resultado vai codificado no fragmento do link. A lógica do sorteio tem testes unitários e as limitações de segurança estão documentadas.</p>
+          <ul class="stack"><li class="tag">React</li><li class="tag">Vite</li><li class="tag">Tailwind</li><li class="tag">Vitest</li><li class="tag">GitHub Pages</li></ul>
+          <div class="shots" aria-label="Capturas de ecrã de Amigo Oculto">
+            <figure><a href="imagens/amigo-oculto-1.png" target="_blank" rel="noopener"><img src="imagens/amigo-oculto-1.png" alt="Amigo Oculto: Ecrã para organizador adicionar participantes" loading="lazy" onerror="hideShot(this)"></a><figcaption>Ecrã para organizador adicionar participantes</figcaption></figure>
+            <figure><a href="imagens/amigo-oculto-2.png" target="_blank" rel="noopener"><img src="imagens/amigo-oculto-2.png" alt="Amigo Oculto: Ecrã do organizador com os links" loading="lazy" onerror="hideShot(this)"></a><figcaption>Ecrã do organizador com os links</figcaption></figure>
+            <figure><a href="imagens/amigo-oculto-3.png" target="_blank" rel="noopener"><img src="imagens/amigo-oculto-3.png" alt="Amigo Oculto: Cartão de revelação" loading="lazy" onerror="hideShot(this)"></a><figcaption>Cartão de revelação</figcaption></figure>
+          </div>
+          <div class="links"><a href="https://github.com/anavv03/amigo-oculto">Código no GitHub</a></div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="competencias">
+    <h2>Competências</h2>
+    <p class="sub">As tecnologias que usei nos projetos acima.</p>
+    <div class="skills">
+      <div><h3>Linguagens</h3><p>Python, JavaScript, SQL, HTML e CSS</p></div>
+      <div><h3>Backend</h3><p>FastAPI, Flask, SQLAlchemy, autenticação com JWT</p></div>
+      <div><h3>Frontend</h3><p>React, Next.js, Tailwind CSS</p></div>
+      <div><h3>Dados</h3><p>pandas, Plotly, Streamlit, PostgreSQL, Redis</p></div>
+      <div><h3>Infraestrutura</h3><p>Docker, Docker Compose, Docker Swarm, Nginx, Prometheus, Grafana</p></div>
+      <div><h3>Ferramentas</h3><p>Git, GitHub, GitHub Actions, Vitest</p></div>
+    </div>
+  </section>
+
+  <section id="formacao">
+    <h2>Formação</h2>
+    <div class="edu">
+      <div><strong>Mestrado em Cibersegurança e Informática Forense</strong><span>Leiria · a frequentar</span></div>
+      <div><strong>Licenciatura em Engenharia Informática</strong><span>Concluída</span></div>
+      <div><strong>Curso de Python</strong><span>Tokio School</span></div>
+      <div><strong>Especialização em Inteligência Artificial</strong><span>Tokio School · em curso</span></div>
+      <div><strong>Curso Programação e Algoritmia</strong><span>Centro de Formação Profissional · Cinel</span></div>
+    </div>
+  </section>
+
+  <section id="contacto" class="contact">
+    <h2>Contacto</h2>
+    <p>Aberta a oportunidades de estágio e desenvolvimento profissional. 
+      A forma mais rápida de falar comigo é pelo LinkedIn.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://www.linkedin.com/in/ana-vieira-ven%C3%A2ncio03">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/anavv03">GitHub</a>
+    </div>
+  </section>
+
+  <footer>Ana Venâncio · Lisboa · <span lang="en">Computer Engineering graduate and MSc student in Cybersecurity and Digital Forensics, open to internships.</span></footer>
+</div>
